@@ -10,14 +10,25 @@ def test_function(entry):
 #cfe3b6ec5054916590a018157fe473ff
 #http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
     
+def format_response(weather):
+       name = weather['name']
+       desc = weather['weather'][0]['description']
+       temp = weather['main']['temp']
+       feel = weather['main']['feels_like']
+       humid = weather['main']['humidity']
+       pressure = weather['main']['pressure']
 
+       return  str(name) + ' '+ str(desc) + ' ' + str(temp) + ' '+ str(feel) + ' ' + str(humid) + ' '+ str(pressure) + ' '
 
 def get_weather(city):
         weather_key = 'cfe3b6ec5054916590a018157fe473ff'
-        url='http://api.openweathermap.org/data/2.5/forecast'
+        url='http://api.openweathermap.org/data/2.5/weather'
         params={'APPID': weather_key, 'q': city, 'units': 'metric'}
         response = requests.get(url, params=params)
-        print(response.json())
+        weather = (response.json())
+
+        label['text'] = format_response(weather)
+
 
 
 
