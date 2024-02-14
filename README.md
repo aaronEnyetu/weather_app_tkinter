@@ -8,8 +8,12 @@ A python application with a graphical user interface (GUI) using tkinter library
 
 2. pip install Pillow (handle image stuff when building the GUI)
 
+3. pip install pyinstaller (for making the app executable)
+
 ## Tkinter Documentation
 
 <https://www.tutorialspoint.com/python/python_gui_programming.htm>
 
+## Executable
 
+---pyinstaller.exe --onefile weatherApp.py
